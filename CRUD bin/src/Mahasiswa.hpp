@@ -23,7 +23,7 @@ class Mahasiswa
 		, m_prodi  (prodi)
 		, m_kelas  (kelas)
 		{
-			fileIO.open  ("data.bin", std::ios::out | std::ios::app);
+			fileIO.open  ("bin/data.bin", std::ios::out | std::ios::app);
 			fileIO.close ();
 		}
 
@@ -41,7 +41,7 @@ class Mahasiswa
 
 		void writeData ()
 		{
-			fileIO.open ("data.bin", std::ios::out | std::ios::binary | std::ios::app);
+			fileIO.open ("bin/data.bin", std::ios::out | std::ios::binary | std::ios::app);
 
 				if (fileIO)
 				{
@@ -80,7 +80,7 @@ class Mahasiswa
 			std::cout << "| No. | Nama                            | NIM             | Prodi                   | Kelas           |\n";
 			std::cout << "+=====+=================================+=================+=========================+=================+\n";
 
-			fileIO.open ("data.bin", std::ios::in | std::ios::binary);
+			fileIO.open ("bin/data.bin", std::ios::in | std::ios::binary);
 
 			while (true)
 			{
@@ -122,7 +122,7 @@ class Mahasiswa
 
         void updateData (const int dataIndex)
         {
-			fileIO.open ("data.bin", std::ios::in | std::ios::binary);
+			fileIO.open ("bin/data.bin", std::ios::in | std::ios::binary);
 
 				getData    ();
 				deleteData (dataIndex, "update");
@@ -137,7 +137,7 @@ class Mahasiswa
 
 		void deleteData (const int dataIndex, const std::string& editOption)
 		{
-			fileIO.open ("data.bin", std::ios::out | std::ios::in | std::ios::binary);
+			fileIO.open ("bin/data.bin", std::ios::out | std::ios::in | std::ios::binary);
 				for (int a = 1; a < dataIndex; a++)
 					{
 						char temp = '\0';
@@ -244,7 +244,7 @@ class Mahasiswa
 
 			if (isTrue)
 			{
-        		truncate ("data.bin", putPosition);	
+        		truncate ("bin/data.bin", putPosition);	
 				
 				if (editOption == "delete")
 				{
